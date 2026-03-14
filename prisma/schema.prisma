@@ -127,10 +127,16 @@ model Tip {
 }
 
 model advertisement {
-  id String @id @default(uuid())
+  id            String @id @default(uuid())
   shortTitle_az String
   shortTitle_en String
-  title_az String
-  title_en String
-  image String
+  title_az      String
+  title_en      String
+  image         String
+}
+
+model subscribe {
+  id        String   @id @default(uuid())
+  email     String  @unique
+  createdAt DateTime @default(now())
 }

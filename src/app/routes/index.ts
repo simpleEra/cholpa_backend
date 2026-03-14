@@ -4,6 +4,7 @@ import { userRouter } from '../modules/user/user.router';
 import { BannerRouter } from '../modules/banner/banner.router';
 import { RecipeRouter } from '../modules/Recipe/Recipe.router';
 import { advertisementRouter } from '../modules/advertisement/advertisement.router';
+import { subscribeRouter } from '../modules/subscribe/subscribe.router';
 
 const router = express.Router();
 
@@ -32,6 +33,10 @@ const routes: Route[] = [
   {
     path: '/advertisement',
     route: advertisementRouter,
+  },
+  {
+    path: '/subscribe',
+    route: subscribeRouter,
   },
  
 ];
