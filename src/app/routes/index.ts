@@ -5,6 +5,7 @@ import { BannerRouter } from '../modules/banner/banner.router';
 import { RecipeRouter } from '../modules/Recipe/Recipe.router';
 import { advertisementRouter } from '../modules/advertisement/advertisement.router';
 import { subscribeRouter } from '../modules/subscribe/subscribe.router';
+import { personalDetailsRouter } from '../modules/personal-details/personal-details.router';
 
 const router = express.Router();
 
@@ -37,6 +38,10 @@ const routes: Route[] = [
   {
     path: '/subscribe',
     route: subscribeRouter,
+  },
+  {
+    path: '/personal-details',
+    route: personalDetailsRouter,
   },
  
 ];

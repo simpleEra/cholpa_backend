@@ -140,3 +140,11 @@ model subscribe {
   email     String  @unique
   createdAt DateTime @default(now())
 }
+
+model personalDetails {
+  id String @id @default(uuid())
+  name String 
+  email String 
+  phone String 
+  text String 
+}
