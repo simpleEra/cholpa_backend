@@ -9,6 +9,8 @@ const user_router_1 = require("../modules/user/user.router");
 const banner_router_1 = require("../modules/banner/banner.router");
 const Recipe_router_1 = require("../modules/Recipe/Recipe.router");
 const advertisement_router_1 = require("../modules/advertisement/advertisement.router");
+const subscribe_router_1 = require("../modules/subscribe/subscribe.router");
+const personal_details_router_1 = require("../modules/personal-details/personal-details.router");
 const router = express_1.default.Router();
 const routes = [
     {
@@ -30,6 +32,14 @@ const routes = [
     {
         path: '/advertisement',
         route: advertisement_router_1.advertisementRouter,
+    },
+    {
+        path: '/subscribe',
+        route: subscribe_router_1.subscribeRouter,
+    },
+    {
+        path: '/personal-details',
+        route: personal_details_router_1.personalDetailsRouter,
     },
 ];
 routes.forEach((route) => {
