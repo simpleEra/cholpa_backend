@@ -3,6 +3,7 @@ import catchAsync from "../../utils/catchAsync";
 import AppError from "../../errors/AppError";
 import { BannerService } from "./banner.service";
 import sendResponse from "../../utils/sendResponse";
+import prisma from "../../utils/prisma";
 
 const createBanner = catchAsync(async (req, res) => {
     const file = req.file as Express.Multer.File; 
@@ -36,7 +37,14 @@ const getSingleBanner = catchAsync(async (req, res) => {
 })
 
 const deleteBanner = catchAsync(async (req, res) => {
-
+    const bannerId = req.params.id 
+    const result = await BannerService.deleteBanner(req.params.id as string)
+     sendResponse(res,{
+          success:true,
+        statusCode:httpStatus.OK,
+        message:"Banner remove successfully",
+        data:result
+    })
 })
 
 export const BannerController = {

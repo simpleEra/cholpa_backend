@@ -59,9 +59,30 @@ const getAllBanner = async ()=>{
      return reuslt
 }
 const getSingleBanner = catchAsync(async (req, res) => { })
-const deleteBanner = catchAsync(async (req, res) => { })
+
+const deleteBanner = async (id:string)=>{
+  const isValidBanner = await prisma.banner.findUnique(
+    {
+      where:{
+        id 
+      }
+    }
+  )
+  if(!isValidBanner){
+    throw new AppError(httpStatus.NOT_FOUND,"invalid banner")
+  }
+  const result = await prisma.banner.delete(
+    {
+      where:{
+        id:id 
+      }
+    }
+  )
+  return result
+}
 
 export const BannerService = {
     createBanner,
-    getAllBanner
+    getAllBanner,
+    deleteBanner
 }
